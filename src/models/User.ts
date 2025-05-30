@@ -9,7 +9,7 @@ const usersSchema = new Schema(
     password: { type: String, required: true },
     name: { type: String, required: true },
     bio: { type: String, required: false },
-    profilePic: { type: String, required: true }, // profile picture src
+    profilePic: { type: String, required: false }, // profile picture src
     isVerified: { type: Boolean, default: false }, // for verify user
     isPrivate: { type: String, default: false }, // private or public page
   },
