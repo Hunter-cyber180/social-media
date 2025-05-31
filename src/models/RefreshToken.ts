@@ -31,6 +31,17 @@ refreshTokenSchema.statics.createToken = async (user) => {
   return refreshToken;
 };
 
+// verify refresh token
+refreshTokenSchema.statics.verifyToken = async (token) => {
+    // get refresh token with having an expiration
+  const refreshTokenDocument = await model.findOne({
+    token,
+    expireTime: { $gte: new Date() },
+  });
+
+  return refreshTokenDocument ? refreshTokenDocument.user : null;
+};
+
 // create refresh token model
 const model = mongoose.model("RefreshToken", refreshTokenSchema);
 
