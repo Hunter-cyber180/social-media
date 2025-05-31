@@ -1,11 +1,12 @@
 // * ----- Third-party Packages -----
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 // * ----- models -----
 import UserModel from "../models/User";
 
 // * ----- DTO -----
-import { UserRegister } from "./dto/userDto";
+import { User, UserRegister } from "./dto/userDto";
 
 // register user
 export const register = async (body: UserRegister) => {
@@ -32,6 +33,31 @@ export const register = async (body: UserRegister) => {
   );
 
   // return data to controller
+  return {
+    user: { ...user.toObject(), password: undefined },
+    accessToken,
+  };
+};
+
+// login user
+export const login = async (body: User) => {
+  const { email, password } = body;
+
+  //  Checking the existence of the user
+  const user = await UserModel.findOne({ email });
+  if (!user) throw new Error("User not found!");
+
+  //   Checking the password is correct
+  const isPasswordCorrect = await bcrypt.compare(password, user.password);
+  if (!isPasswordCorrect) throw new Error("Email or Password is not valid!");
+
+  //   create user token (access token)
+  const accessToken = jwt.sign(
+    { userID: user._id },
+    process.env.ACCESS_TOKEN_KEY as string,
+    { expiresIn: "2days" }
+  );
+
   return {
     user: { ...user.toObject(), password: undefined },
     accessToken,
