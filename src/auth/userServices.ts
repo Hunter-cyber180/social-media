@@ -5,10 +5,10 @@ import jwt from "jsonwebtoken";
 import UserModel from "../models/User";
 
 // * ----- DTO -----
-import User from "./dto/userDto";
+import { UserRegister } from "./dto/userDto";
 
 // register user
-export const register = async (body: User) => {
+export const register = async (body: UserRegister) => {
   const { username, email } = body;
 
   // Checking the existence of the user

@@ -1,7 +1,11 @@
 // create user interface
-export default interface User {
-  username: string;
-  password: string;
+export interface User {
   email: string;
+  password: string;
+}
+
+// create user register dto
+export interface UserRegister extends User {
   name: string;
+  username: string;
 }
