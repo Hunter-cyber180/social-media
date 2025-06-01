@@ -2,6 +2,19 @@ import mongoose from "mongoose";
 import { v4 } from "uuid";
 const Schema = mongoose.Schema;
 
+// Interface for static methods
+interface IRefreshTokenModel extends mongoose.Model<IRefreshTokenDoc> {
+  createToken(user: any): Promise<string>;
+  verifyToken(token: string): Promise<mongoose.Types.ObjectId | null>;
+}
+
+// Interface for document
+interface IRefreshTokenDoc extends mongoose.Document {
+  token: string;
+  user: mongoose.Types.ObjectId;
+  expireTime: Date;
+}
+
 // create refresh token schema
 const refreshTokenSchema = new Schema({
   token: { type: String, required: true, unique: true },
@@ -33,7 +46,7 @@ refreshTokenSchema.statics.createToken = async (user) => {
 
 // verify refresh token
 refreshTokenSchema.statics.verifyToken = async (token) => {
-    // get refresh token with having an expiration
+  // get refresh token with having an expiration
   const refreshTokenDocument = await model.findOne({
     token,
     expireTime: { $gte: new Date() },
@@ -43,6 +56,9 @@ refreshTokenSchema.statics.verifyToken = async (token) => {
 };
 
 // create refresh token model
-const model = mongoose.model("RefreshToken", refreshTokenSchema);
+const model = mongoose.model<IRefreshTokenDoc, IRefreshTokenModel>(
+  "RefreshToken",
+  refreshTokenSchema
+);
 
 export default model;
