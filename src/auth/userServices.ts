@@ -1,3 +1,6 @@
+// * ----- built in packages -----
+import crypto from "crypto";
+
 // * ----- Third-party Packages -----
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
@@ -5,6 +8,7 @@ import bcrypt from "bcrypt";
 // * ----- models -----
 import UserModel from "../models/User";
 import RefreshTokenModel from "../models/RefreshToken";
+import ResetPasswordModel from "../models/ResetPassword";
 
 // * ----- DTO -----
 import { User, UserRegister } from "./dto/userDto";
@@ -97,4 +101,22 @@ export const refreshToken = async (token: string) => {
     accessToken,
     refreshToken: newRefreshToken,
   };
+};
+
+export const forgetPassword = async (email: string) => {
+  const user = await UserModel.findOne({ email });
+  if (!user) throw new Error("User not found!");
+
+  const token = crypto.randomBytes(32).toString("hex");
+  const tokenExpireTime = Date.now() + 60 * 60 * 1000;
+
+  const resetPassword = new ResetPasswordModel({
+    user: user._id,
+    token,
+    tokenExpireTime,
+  });
+
+  await resetPassword.save();
+
+  // TODO => send email to user
 };
