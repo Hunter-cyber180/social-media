@@ -145,11 +145,13 @@ export const forgetPassword = async (email: string) => {
     from: process.env.NODEMAILER_USER_EMAIL,
     to: email,
     subject: "Reset Password Link For Your Social Account",
-    html: htmlTemplate
-  }
+    html: htmlTemplate,
+  };
 
   // send email to user
   transporter.sendMail(options);
 
-  return;
+  return {
+    token,
+  };
 };
