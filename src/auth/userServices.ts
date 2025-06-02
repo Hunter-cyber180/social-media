@@ -1,9 +1,12 @@
 // * ----- built in packages -----
 import crypto from "crypto";
+import path from "path";
+import fs from "fs";
 
 // * ----- Third-party Packages -----
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import nodemailer from "nodemailer";
 
 // * ----- models -----
 import UserModel from "../models/User";
@@ -118,5 +121,19 @@ export const forgetPassword = async (email: string) => {
 
   await resetPassword.save();
 
-  // TODO => send email to user
+  // html template for send email
+  const templatePath = path.join(__dirname, "../templates/reset-password.html");
+  let htmlTemplate = fs.readFileSync(templatePath, "utf-8");
+
+  // replace reset link in template
+  const resetLink = "my reset link"; // TODO => set reset link
+  htmlTemplate = htmlTemplate.replace("{{reset_link}}", resetLink);
+
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.NODEMAILER_USER_EMAIL,
+      pass: process.env.NODEMAILER_PASSWORD,
+    },
+  });
 };
