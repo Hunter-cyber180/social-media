@@ -106,10 +106,12 @@ export const refreshToken = async (token: string) => {
   };
 };
 
+// forget password
 export const forgetPassword = async (email: string) => {
   const user = await UserModel.findOne({ email });
   if (!user) throw new Error("User not found!");
 
+  // create a token with expire time
   const token = crypto.randomBytes(32).toString("hex");
   const tokenExpireTime = Date.now() + 60 * 60 * 1000;
 
@@ -145,4 +147,9 @@ export const forgetPassword = async (email: string) => {
     subject: "Reset Password Link For Your Social Account",
     html: htmlTemplate
   }
+
+  // send email to user
+  transporter.sendMail(options);
+
+  return;
 };
