@@ -129,6 +129,7 @@ export const forgetPassword = async (email: string) => {
   const resetLink = "my reset link"; // TODO => set reset link
   htmlTemplate = htmlTemplate.replace("{{reset_link}}", resetLink);
 
+  // nodemailer transporter
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -136,4 +137,12 @@ export const forgetPassword = async (email: string) => {
       pass: process.env.NODEMAILER_PASSWORD,
     },
   });
+
+  // nodemailer options
+  const options = {
+    from: process.env.NODEMAILER_USER_EMAIL,
+    to: email,
+    subject: "Reset Password Link For Your Social Account",
+    html: htmlTemplate
+  }
 };
