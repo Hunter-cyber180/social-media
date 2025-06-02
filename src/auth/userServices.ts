@@ -155,3 +155,33 @@ export const forgetPassword = async (email: string) => {
     token,
   };
 };
+
+// reset password
+export const resetPassword = async (token: string, password: string) => {
+  // get reset password by token
+  const resetPasswd = await ResetPasswordModel.findOne({
+    token,
+    tokenExpireTime: { $gt: Date.now() },
+  });
+
+  if (!resetPasswd) throw new Error("Invalid or expired token!");
+
+  const user = await UserModel.findOne({ _id: resetPasswd.user });
+  if (!user) throw new Error("User not found!");
+
+  // hash new password
+  const hashedPasswd = await bcrypt.hash(password, 10);
+
+  // update user password
+  await UserModel.findOneAndUpdate(
+    {
+      _id: user._id,
+    },
+    { password: hashedPasswd }
+  );
+
+  // delete reset password doc
+  await ResetPasswordModel.findOneAndDelete({ _id: resetPasswd._id });
+
+  return;
+};
