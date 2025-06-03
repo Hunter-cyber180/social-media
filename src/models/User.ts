@@ -12,7 +12,7 @@ const usersSchema = new Schema(
     bio: { type: String, required: false },
     profilePic: { type: String, required: false }, // profile picture src
     isVerified: { type: Boolean, default: false }, // for verify user
-    isPrivate: { type: String, default: false }, // private or public page
+    isPrivate: { type: Boolean, default: false }, // private or public page
   },
   { timestamps: true }
 );
