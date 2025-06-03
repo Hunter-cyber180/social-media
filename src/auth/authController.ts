@@ -3,6 +3,7 @@ import { Request, Response, NextFunction, Router } from "express";
 // * ----- DTO -----
 import { LoginUserDto, RegisterUserDto } from "./dto/createUserDto";
 import { User, UserRegister } from "./dto/userDto";
+import { ForgetPasswordDto, ResetPasswordDto } from "./dto/resetPasswordDto";
 
 // * ----- middlewares -----
 import ValidationMiddleware from "../middlewares/validate";
@@ -74,6 +75,7 @@ router.get(
 // forget password
 router.post(
   "/forget-password",
+  ValidationMiddleware(ForgetPasswordDto),
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     // get data from req.body and sent reset password email
     const { email } = req.body;
@@ -91,6 +93,7 @@ router.post(
 // reset password
 router.post(
   "/reset-password",
+  ValidationMiddleware(ResetPasswordDto),
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     // get data from req.body and set new password for user
     const { token, password } = req.body;
