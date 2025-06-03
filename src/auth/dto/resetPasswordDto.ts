@@ -11,7 +11,16 @@ export class ForgetPasswordDto {
   email: string;
 }
 
-export class ResetPasswordDto extends ForgetPasswordDto {
+export class ResetPasswordDto {
+  // password validation
+  @IsNotEmpty({ message: "Password cannot be empty!" })
+  @IsString({ message: "Password type must be a string!" })
+  // validate password by regex
+  @Matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/, {
+    message: "Password is not valid!",
+  })
+  password: string;
+
   // reset token validation
   @IsNotEmpty({ message: "token cannot be empty!" })
   @IsString({ message: "token type must be a string!" })
