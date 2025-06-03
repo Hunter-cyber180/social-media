@@ -7,28 +7,15 @@ import {
 } from "class-validator";
 
 // create user DTO
-class CreateUserDto {
-  //  username validation
-  @IsNotEmpty({ message: "Username cannot be empty!" })
-  @IsString({ message: "Username type must be a string!" })
-  @MinLength(3, { message: "Username is too short!" })
-  @MaxLength(30, { message: "Username is too long!" })
-  username: string;
-
+export class LoginUserDto {
   // email validation
   @IsNotEmpty({ message: "Email cannot be empty!" })
   @IsString({ message: "Email type must be a string!" })
-  @Matches(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/, { // validate email by regex
+  @Matches(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/, {
+    // validate email by regex
     message: "Email is not valid!",
   })
   email: string;
-
-  // name validation
-  @IsNotEmpty({ message: "Name cannot be empty!" })
-  @IsString({ message: "Name type must be a string!" })
-  @MinLength(3, { message: "Name is too short!" })
-  @MaxLength(50, { message: "Name is too long!" })
-  name: string;
 
   // password validation
   @IsNotEmpty({ message: "Password cannot be empty!" })
@@ -40,5 +27,18 @@ class CreateUserDto {
   password: string;
 }
 
-// export DTO
-export default CreateUserDto;
+export class RegisterUserDto extends LoginUserDto {
+  //  username validation
+  @IsNotEmpty({ message: "Username cannot be empty!" })
+  @IsString({ message: "Username type must be a string!" })
+  @MinLength(3, { message: "Username is too short!" })
+  @MaxLength(30, { message: "Username is too long!" })
+  username: string;
+  
+  // name validation
+  @IsNotEmpty({ message: "Name cannot be empty!" })
+  @IsString({ message: "Name type must be a string!" })
+  @MinLength(3, { message: "Name is too short!" })
+  @MaxLength(50, { message: "Name is too long!" })
+  name: string;
+}

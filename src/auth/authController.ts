@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction, Router } from "express";
 import ValidationMiddleware from "../middlewares/validate";
-import CreateUserDto from "./dto/createUserDto";
+import { RegisterUserDto } from "./dto/createUserDto";
 import { UserRegister } from "./dto/userDto";
 import { register } from "./authServices";
 
@@ -9,7 +9,7 @@ const router = Router();
 // register user
 router.post(
   "/register",
-  ValidationMiddleware(CreateUserDto),
+  ValidationMiddleware(RegisterUserDto),
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     // get data from req.body and register user
     const body: UserRegister = req.body;
