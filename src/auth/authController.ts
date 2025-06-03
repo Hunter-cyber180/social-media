@@ -2,7 +2,13 @@ import { Request, Response, NextFunction, Router } from "express";
 import ValidationMiddleware from "../middlewares/validate";
 import { LoginUserDto, RegisterUserDto } from "./dto/createUserDto";
 import { User, UserRegister } from "./dto/userDto";
-import { forgetPassword, login, refreshToken, register } from "./authServices";
+import {
+  forgetPassword,
+  login,
+  refreshToken,
+  register,
+  resetPassword,
+} from "./authServices";
 
 const router = Router();
 
@@ -71,6 +77,22 @@ router.post(
     res.status(201).json({
       message: "Password reset email sent.",
       data: { token },
+      success: true,
+    });
+  }
+);
+
+// reset password
+router.post(
+  "/reset-password",
+  async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    // get data from req.body and set new password for user
+    const { token, password } = req.body;
+    await resetPassword(token, password);
+
+    // return json response
+    res.status(200).json({
+      message: "Set New Password was successfully!",
       success: true,
     });
   }
