@@ -43,7 +43,7 @@ router.post(
 );
 
 // refresh token
-router.post(
+router.get(
   "/refresh",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     // get data from req.params and register user
