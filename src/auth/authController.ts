@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction, Router } from "express";
 import ValidationMiddleware from "../middlewares/validate";
-import { RegisterUserDto } from "./dto/createUserDto";
-import { UserRegister } from "./dto/userDto";
-import { register } from "./authServices";
+import { LoginUserDto, RegisterUserDto } from "./dto/createUserDto";
+import { User, UserRegister } from "./dto/userDto";
+import { login, register } from "./authServices";
 
 const router = Router();
 
@@ -18,6 +18,24 @@ router.post(
     // return json response
     res.status(201).json({
       message: "User Registered successfully!",
+      data,
+      success: true,
+    });
+  }
+);
+
+// login user
+router.post(
+  "/login",
+  ValidationMiddleware(LoginUserDto),
+  async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    // get data from req.body and login user
+    const body: User = req.body;
+    const data = await login(body);
+
+    // return json response
+    res.status(201).json({
+      message: "User Logined successfully!",
       data,
       success: true,
     });
