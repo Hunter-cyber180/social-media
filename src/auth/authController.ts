@@ -1,7 +1,13 @@
 import { Request, Response, NextFunction, Router } from "express";
-import ValidationMiddleware from "../middlewares/validate";
+
+// * ----- DTO -----
 import { LoginUserDto, RegisterUserDto } from "./dto/createUserDto";
 import { User, UserRegister } from "./dto/userDto";
+
+// * ----- middlewares -----
+import ValidationMiddleware from "../middlewares/validate";
+
+// * ----- services -----
 import {
   forgetPassword,
   login,
@@ -40,7 +46,7 @@ router.post(
     const data = await login(body);
 
     // return json response
-    res.status(201).json({
+    res.status(200).json({
       message: "User Logined successfully!",
       data,
       success: true,
@@ -57,7 +63,7 @@ router.get(
     const data = await refreshToken(token);
 
     // return json response
-    res.status(201).json({
+    res.status(200).json({
       message: "Create Refresh Token was successfully!",
       data,
       success: true,
@@ -74,7 +80,7 @@ router.post(
     const { token } = await forgetPassword(email);
 
     // return json response
-    res.status(201).json({
+    res.status(200).json({
       message: "Password reset email sent.",
       data: { token },
       success: true,
