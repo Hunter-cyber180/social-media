@@ -2,7 +2,7 @@ import { Request, Response, NextFunction, Router } from "express";
 import ValidationMiddleware from "../middlewares/validate";
 import { LoginUserDto, RegisterUserDto } from "./dto/createUserDto";
 import { User, UserRegister } from "./dto/userDto";
-import { login, register } from "./authServices";
+import { login, refreshToken, register } from "./authServices";
 
 const router = Router();
 
@@ -36,6 +36,23 @@ router.post(
     // return json response
     res.status(201).json({
       message: "User Logined successfully!",
+      data,
+      success: true,
+    });
+  }
+);
+
+// refresh token
+router.post(
+  "/refresh",
+  async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    // get data from req.params and register user
+    const { token } = req.params;
+    const data = await refreshToken(token);
+
+    // return json response
+    res.status(201).json({
+      message: "Create Refresh Token was successfully!",
       data,
       success: true,
     });
