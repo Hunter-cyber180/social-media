@@ -59,4 +59,21 @@ router.get(
   }
 );
 
+// forget password
+router.post(
+  "/forget-password",
+  async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    // get data from req.body and sent reset password email
+    const { email } = req.body;
+    const { token } = await forgetPassword(email);
+
+    // return json response
+    res.status(201).json({
+      message: "Password reset email sent.",
+      data: { token },
+      success: true,
+    });
+  }
+);
+
 export default router;
