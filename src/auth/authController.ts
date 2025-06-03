@@ -2,7 +2,7 @@ import { Request, Response, NextFunction, Router } from "express";
 import ValidationMiddleware from "../middlewares/validate";
 import { LoginUserDto, RegisterUserDto } from "./dto/createUserDto";
 import { User, UserRegister } from "./dto/userDto";
-import { login, refreshToken, register } from "./authServices";
+import { forgetPassword, login, refreshToken, register } from "./authServices";
 
 const router = Router();
 
@@ -46,7 +46,7 @@ router.post(
 router.get(
   "/refresh",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    // get data from req.params and register user
+    // get data from req.params and create new access token
     const { token } = req.params;
     const data = await refreshToken(token);
 
