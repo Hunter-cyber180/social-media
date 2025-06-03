@@ -36,7 +36,7 @@ export const register = async (body: UserRegister) => {
     { userID: user._id },
     process.env.ACCESS_TOKEN_KEY as string,
     {
-      expiresIn: "15s",
+      expiresIn: "1min",
     }
   );
 
@@ -66,7 +66,7 @@ export const login = async (body: User) => {
   const accessToken = jwt.sign(
     { userID: user._id },
     process.env.ACCESS_TOKEN_KEY as string,
-    { expiresIn: "15s" }
+    { expiresIn: "1min" }
   );
 
   const refreshToken = await RefreshTokenModel.createToken(user);
@@ -94,7 +94,7 @@ export const refreshToken = async (token: string) => {
   const accessToken = jwt.sign(
     { userID: user._id },
     process.env.ACCESS_TOKEN_KEY as string,
-    { expiresIn: "15s" }
+    { expiresIn: "1min" }
   );
 
   // create new refresh token

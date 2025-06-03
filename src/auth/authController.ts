@@ -57,7 +57,7 @@ router.post(
 
 // refresh token
 router.get(
-  "/refresh",
+  "/refresh/:token",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     // get data from req.params and create new access token
     const { token } = req.params;
