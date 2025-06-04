@@ -1,6 +1,7 @@
 import { IsMongoId, IsNotEmpty, IsString } from "class-validator";
 import { Types } from "mongoose";
 
+// create like DTO
 class CreateLikeDto {
   // user ID validation
   @IsNotEmpty({ message: "User Id can not be empty!" })

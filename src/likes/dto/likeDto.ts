@@ -1,8 +1,7 @@
 import { Types } from "mongoose";
 
-// comment DTO
-export default interface Comment {
+// like interface
+export default interface Like {
   user: Types.ObjectId;
   post: Types.ObjectId;
-  content: string;
 }
