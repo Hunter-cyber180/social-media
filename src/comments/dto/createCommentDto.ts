@@ -1,15 +1,18 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsMongoId, IsNotEmpty, IsString } from "class-validator";
+import { Types } from "mongoose";
 
 class CreateCommentDto {
     // user ID validation
     @IsNotEmpty({ message: "User Id can not be empty!" })
     @IsString({ message: "User Id type must be a string!" })
-    user: string;
+    @IsMongoId({ message: "User Id is not valid!" })
+    user: Types.ObjectId;
 
     // post ID validation
     @IsNotEmpty({ message: "Post Id can not be empty!" })
     @IsString({ message: "Post Id type must be a string!" })
-    post: string;
+    @IsMongoId({ message: "Post Id is not valid!" })
+    post: Types.ObjectId;
 
     // content validation
     @IsNotEmpty({ message: "Content can not be empty!" })
