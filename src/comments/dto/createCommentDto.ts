@@ -10,6 +10,11 @@ class CreateCommentDto {
     @IsNotEmpty({ message: "Post Id can not be empty!" })
     @IsString({ message: "Post Id type must be a string!" })
     post: string;
+
+    // content validation
+    @IsNotEmpty({ message: "Content can not be empty!" })
+    @IsString({ message: "Content type must be a string!" })
+    content: string;
 }
 
 export default CreateCommentDto;
