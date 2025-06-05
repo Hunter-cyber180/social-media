@@ -20,6 +20,11 @@ class CreateReplyCommentDto {
   @IsString({ message: "Parent Id type must be a string!" })
   @IsMongoId({ message: "Parent Id is not valid!" })
   parent: Types.ObjectId;
+
+  // content validation
+  @IsNotEmpty({ message: "Content can not be empty!" })
+  @IsString({ message: "Content type must be a string!" })
+  content: string;
 }
 
 export default CreateReplyCommentDto;
