@@ -8,6 +8,12 @@ class CreateFollowDto {
   @IsString({ message: "Follower Id type must be a string!" })
   @IsMongoId({ message: "Follower Id is not valid!" })
   follower: Types.ObjectId;
+
+  // following ID validation
+  @IsNotEmpty({ message: "Following Id can not be empty!" })
+  @IsString({ message: "Following Id type must be a string!" })
+  @IsMongoId({ message: "Following Id is not valid!" })
+  following: Types.ObjectId;
 }
 
 export default CreateFollowDto;
