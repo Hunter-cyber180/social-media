@@ -1,4 +1,5 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { Type } from "class-transformer";
+import { IsNotEmpty, IsString, ValidateNested } from "class-validator";
 
 // media DTO
 class MediaDto {
@@ -12,3 +13,13 @@ class MediaDto {
   @IsString({ message: "Filename type must be a string!" })
   filename: string;
 }
+
+// create post DTO
+class CreatePostDto {
+  // media validation
+  @ValidateNested()
+  @Type(() => MediaDto)
+  media: MediaDto;
+}
+
+export default CreatePostDto;
