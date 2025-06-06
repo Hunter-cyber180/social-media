@@ -1,11 +1,13 @@
 import { Type } from "class-transformer";
 import {
   IsArray,
+  IsMongoId,
   IsNotEmpty,
   IsOptional,
   IsString,
   ValidateNested,
 } from "class-validator";
+import { Types } from "mongoose";
 
 // media DTO
 class MediaDto {
@@ -37,6 +39,12 @@ class CreatePostDto {
   @IsString({ each: true, message: "Tag type must be a string!" })
   @IsOptional()
   tags?: string[];
+
+  // user ID validation
+  @IsNotEmpty({ message: "User Id can not be empty!" })
+  @IsString({ message: "User Id type must be a string!" })
+  @IsMongoId({ message: "User Id is not valid!" })
+  user: Types.ObjectId;
 }
 
 export default CreatePostDto;
