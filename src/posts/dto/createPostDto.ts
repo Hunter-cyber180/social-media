@@ -1,5 +1,11 @@
 import { Type } from "class-transformer";
-import { IsNotEmpty, IsString, ValidateNested } from "class-validator";
+import {
+  IsArray,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  ValidateNested,
+} from "class-validator";
 
 // media DTO
 class MediaDto {
@@ -25,6 +31,12 @@ class CreatePostDto {
   @IsNotEmpty({ message: "Description can not be empty!" })
   @IsString({ message: "Description type must be a string!" })
   desc: string;
+
+  // tags validation
+  @IsArray({ message: "Tags must be an array!" })
+  @IsString({ each: true, message: "Tag type must be a string!" })
+  @IsOptional()
+  tags?: string[];
 }
 
 export default CreatePostDto;
