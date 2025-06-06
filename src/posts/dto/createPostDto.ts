@@ -20,6 +20,11 @@ class CreatePostDto {
   @ValidateNested()
   @Type(() => MediaDto)
   media: MediaDto;
+
+  // description validation
+  @IsNotEmpty({ message: "Description can not be empty!" })
+  @IsString({ message: "Description type must be a string!" })
+  desc: string;
 }
 
 export default CreatePostDto;
