@@ -15,6 +15,7 @@ import ResetPasswordModel from "../models/ResetPassword";
 
 // * ----- DTO -----
 import { User, UserRegister } from "./dto/userDto";
+import ClientError from "../errors/clientError";
 
 // register user
 export const register = async (body: UserRegister) => {
@@ -25,7 +26,7 @@ export const register = async (body: UserRegister) => {
     $or: [{ username }, { email }],
   });
 
-  if (isUserExist) throw new Error("Duplicate username or email!");
+  if (isUserExist) throw new ClientError("Duplicate username or email!", 409);
 
   // create and save user in UserModel
   const user = new UserModel(body);
@@ -56,11 +57,12 @@ export const login = async (body: User) => {
 
   //  Checking the existence of the user
   const user = await UserModel.findOne({ email });
-  if (!user) throw new Error("User not found!");
+  if (!user) throw new ClientError("User not found!", 404);
 
   //   Checking the password is correct
   const isPasswordCorrect = await bcrypt.compare(password, user.password);
-  if (!isPasswordCorrect) throw new Error("Email or Password is not valid!");
+  if (!isPasswordCorrect)
+    throw new ClientError("Email or Password is not valid!", 422);
 
   //   create user token (access token)
   const accessToken = jwt.sign(
@@ -82,13 +84,13 @@ export const login = async (body: User) => {
 export const refreshToken = async (token: string) => {
   // verify refresh token
   const userID = await RefreshTokenModel.verifyToken(token);
-  if (!userID) throw new Error("Token is not valid!");
+  if (!userID) throw new ClientError("Token is not valid!", 498);
 
   // delete refresh token
   await RefreshTokenModel.findOneAndDelete({ token });
 
   const user = await UserModel.findById(userID);
-  if (!user) throw new Error("User not found!");
+  if (!user) throw new ClientError("User not found!", 404);
 
   // create access token
   const accessToken = jwt.sign(
@@ -109,7 +111,7 @@ export const refreshToken = async (token: string) => {
 // forget password
 export const forgetPassword = async (email: string) => {
   const user = await UserModel.findOne({ email });
-  if (!user) throw new Error("User not found!");
+  if (!user) throw new ClientError("User not found!", 404);
 
   // create a token with expire time
   const token = crypto.randomBytes(32).toString("hex");
@@ -164,10 +166,10 @@ export const resetPassword = async (token: string, password: string) => {
     tokenExpireTime: { $gt: Date.now() },
   });
 
-  if (!resetPasswd) throw new Error("Invalid or expired token!");
+  if (!resetPasswd) throw new ClientError("Invalid or expired token!", 401);
 
   const user = await UserModel.findOne({ _id: resetPasswd.user });
-  if (!user) throw new Error("User not found!");
+  if (!user) throw new ClientError("User not found!", 404);
 
   // hash new password
   const hashedPasswd = await bcrypt.hash(password, 10);
