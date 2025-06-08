@@ -3,6 +3,7 @@ import cors from "cors";
 
 // ? ----- Controllers -----
 import authController from "./auth/authController";
+import IError from "./errors/errorInterface";
 
 const app = express();
 
@@ -26,6 +27,18 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(404).json({
     message: "page not found!",
     success: false,
+  });
+});
+
+// * ----- Error Handler -----
+app.use((error: IError, req: Request, res: Response, next: NextFunction) => {
+  const statusCode = error.status || 500;
+
+  res.status(statusCode).json({
+    success: false,
+    error: {
+      message: `Error: ${error.message || "Internal Server Error!"}`,
+    },
   });
 });
 
