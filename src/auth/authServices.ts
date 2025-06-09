@@ -16,7 +16,6 @@ import ResetPasswordModel from "../models/ResetPassword";
 // * ----- DTO -----
 import { User, UserRegister } from "./dto/userDto";
 
-
 import ClientError from "../errors/clientError";
 
 // register user
@@ -113,7 +112,9 @@ export const refreshToken = async (token: string) => {
 // forget password
 export const forgetPassword = async (email: string) => {
   const user = await UserModel.findOne({ email });
-  if (!user) throw new ClientError("User not found!", 404);
+  if (!user)
+    //! Preventing email enumeration vulnerabilities (To mislead the hacker)
+    throw new ClientError("Reset Password Link For Your Social Account", 200);
 
   // create a token with expire time
   const token = crypto.randomBytes(32).toString("hex");
