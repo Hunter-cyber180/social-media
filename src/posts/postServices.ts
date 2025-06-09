@@ -4,9 +4,12 @@ import UserModel from "../models/User";
 import LikeModel from "../models/Like";
 import SaveModel from "../models/Save";
 import CommentModel from "../models/Comment";
+import Post from "./dto/postDto";
 
 // create post service
-export const addPost = async (desc: string, tags: string[], userID: string) => {
+export const addPost = async (body: Post) => {
+  const { desc, tags, user: userID } = body;
+
   // get user by userID
   const user = await UserModel.findOne({ _id: userID });
   if (!user) throw new ClientError("User Not Found!", 404);
