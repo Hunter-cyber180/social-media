@@ -1,9 +1,12 @@
 import ClientError from "../errors/clientError";
+// * ----- models -----
 import PostModel from "../models/Post";
 import UserModel from "../models/User";
 import LikeModel from "../models/Like";
 import SaveModel from "../models/Save";
 import CommentModel from "../models/Comment";
+
+// * ----- DTO -----
 import Post from "./dto/postDto";
 
 // create post service
