@@ -3,6 +3,8 @@ import cors from "cors";
 
 // ? ----- Controllers -----
 import authController from "./auth/authController";
+import postController from "./posts/postController";
+
 import IError from "./errors/errorInterface";
 
 const app = express();
@@ -20,7 +22,10 @@ app.get("/", (req: Request, res: Response) => {
   res.json({ message: "main page" });
 });
 
+// auth routes
 app.use("/auth", authController);
+// post routes
+app.use("/posts", postController);
 
 // * ----- 404 page -----
 app.use((req: Request, res: Response, next: NextFunction) => {
