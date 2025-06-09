@@ -1,8 +1,14 @@
 import { NextFunction, Router, Request, Response } from "express";
-import ValidationMiddleware from "../middlewares/validate";
-import CreatePostDto from "./dto/createPostDto";
+
+// * ----- DTO -----
 import Post from "./dto/postDto";
-import { addPost } from "./postServices";
+import CreatePostDto from "./dto/createPostDto";
+
+// * ----- middlewares -----
+import ValidationMiddleware from "../middlewares/validate";
+
+// * ----- services -----
+import { addPost, deletePost } from "./postServices";
 
 const router = Router();
 
@@ -23,3 +29,21 @@ router.post(
     });
   }
 );
+
+// delete post controller
+router.delete(
+  "/:userID/:postId",
+  async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    // get userID and postID from params and delete post
+    const { userID, postID } = req.params;
+    await deletePost(userID, postID);
+
+    // return json response
+    res.status(200).json({
+      message: "Post Deleted Successfully!",
+      success: true,
+    });
+  }
+);
+
+export default router;
