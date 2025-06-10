@@ -7,15 +7,19 @@ const router = Router();
 router.post(
   "/:userID/:postID",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    // get postID and userID from req.params and like post
-    const { postID, userID } = req.params;
-    await like(userID, postID);
+    try {
+      // get postID and userID from req.params and like post
+      const { postID, userID } = req.params;
+      await like(userID, postID);
 
-    // return json response
-    res.status(200).json({
-      message: "Post Liked Successfully!",
-      success: true,
-    });
+      // return json response
+      res.status(200).json({
+        message: "Post Liked Successfully!",
+        success: true,
+      });
+    } catch (error) {
+      next(error);
+    }
   }
 );
 
@@ -23,15 +27,19 @@ router.post(
 router.post(
   "/:userID/:postID",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    // get postID and userID from req.params and like post
-    const { postID, userID } = req.params;
-    await unlike(userID, postID);
+    try {
+      // get postID and userID from req.params and like post
+      const { postID, userID } = req.params;
+      await unlike(userID, postID);
 
-    // return json response
-    res.status(200).json({
-      message: "Post Unliked Successfully!",
-      success: true,
-    });
+      // return json response
+      res.status(200).json({
+        message: "Post Unliked Successfully!",
+        success: true,
+      });
+    } catch (error) {
+      next(error);
+    }
   }
 );
 
