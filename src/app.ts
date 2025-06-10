@@ -4,6 +4,7 @@ import cors from "cors";
 // ? ----- Controllers -----
 import authController from "./auth/authController";
 import postController from "./posts/postController";
+import likeController from "./likes/likeController";
 
 import IError from "./errors/errorInterface";
 
@@ -26,6 +27,8 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/auth", authController);
 // post routes
 app.use("/posts", postController);
+// like routes
+app.use("/likes", likeController);
 
 // * ----- 404 page -----
 app.use((req: Request, res: Response, next: NextFunction) => {
