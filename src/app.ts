@@ -5,6 +5,7 @@ import cors from "cors";
 import authController from "./auth/authController";
 import postController from "./posts/postController";
 import likeController from "./likes/likeController";
+import saveController from "./save/saveController";
 
 import IError from "./errors/errorInterface";
 
@@ -29,6 +30,8 @@ app.use("/auth", authController);
 app.use("/posts", postController);
 // like routes
 app.use("/likes", likeController);
+// save routes
+app.use("/saves", saveController);
 
 // * ----- 404 page -----
 app.use((req: Request, res: Response, next: NextFunction) => {
