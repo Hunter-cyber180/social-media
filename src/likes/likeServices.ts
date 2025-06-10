@@ -1,7 +1,9 @@
+import ClientError from "../errors/clientError";
+
+// * ----- models -----
 import UserModel from "../models/User";
 import PostModel from "../models/Post";
 import LikeModel from "../models/Like";
-import ClientError from "../errors/clientError";
 
 // like service
 export const like = async (userID: string, postID: string) => {
