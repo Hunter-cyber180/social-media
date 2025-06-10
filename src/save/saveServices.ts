@@ -29,3 +29,17 @@ export const save = async (userID: string, postID: string) => {
 
   return;
 };
+
+// unsave service
+export const unsave = async (userID: string, postID: string) => {
+  // delete save
+  const save = await SaveModel.findOneAndDelete({
+    user: userID,
+    post: postID,
+  });
+
+  // check existing save
+  if (!save) throw new ClientError("Save not found!", 404);
+
+  return;
+};
