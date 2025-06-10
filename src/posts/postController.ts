@@ -17,16 +17,20 @@ router.post(
   "/",
   ValidationMiddleware(CreatePostDto),
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    // get data from body and create post
-    const body: Post = req.body;
-    const post = await addPost(body);
+    try {
+      // get data from body and create post
+      const body: Post = req.body;
+      const post = await addPost(body);
 
-    // return json response
-    res.status(201).json({
-      message: "Post Created Successfully!",
-      data: post,
-      success: true,
-    });
+      // return json response
+      res.status(201).json({
+        message: "Post Created Successfully!",
+        data: post,
+        success: true,
+      });
+    } catch (error) {
+      next(error);
+    }
   }
 );
 
@@ -34,15 +38,19 @@ router.post(
 router.delete(
   "/:userID/:postId",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    // get userID and postID from params and delete post
-    const { userID, postID } = req.params;
-    await deletePost(userID, postID);
+    try {
+      // get userID and postID from params and delete post
+      const { userID, postID } = req.params;
+      await deletePost(userID, postID);
 
-    // return json response
-    res.status(200).json({
-      message: "Post Deleted Successfully!",
-      success: true,
-    });
+      // return json response
+      res.status(200).json({
+        message: "Post Deleted Successfully!",
+        success: true,
+      });
+    } catch (error) {
+      next(error);
+    }
   }
 );
 
