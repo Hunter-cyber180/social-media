@@ -6,6 +6,7 @@ import authController from "./auth/authController";
 import postController from "./posts/postController";
 import likeController from "./likes/likeController";
 import saveController from "./save/saveController";
+import commentController from "./comments/commentController";
 
 import IError from "./errors/errorInterface";
 
@@ -32,6 +33,8 @@ app.use("/posts", postController);
 app.use("/likes", likeController);
 // save routes
 app.use("/saves", saveController);
+// comment routes
+app.use("/comments", commentController);
 
 // * ----- 404 page -----
 app.use((req: Request, res: Response, next: NextFunction) => {
