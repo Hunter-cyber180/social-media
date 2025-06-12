@@ -1,4 +1,7 @@
+// * ----- DTO -----
 import Comment from "./dto/commentDto";
+
+// * ----- models -----
 import CommentModel from "../models/Comment";
 import PostModel from "../models/Post";
 import UserModel from "../models/User";
