@@ -33,3 +33,15 @@ export const follow = async (userID: string, pageID: string) => {
 
   return follow;
 };
+
+export const unFollow = async (userID: string, pageID: string) => {
+  const page = await FollowModel.findOneAndDelete({
+    follower: userID,
+    following: pageID,
+  });
+
+  if (!page)
+    throw new ClientError("You didn't follow this page", 404);
+
+  return;
+};
