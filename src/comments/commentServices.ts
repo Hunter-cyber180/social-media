@@ -14,7 +14,7 @@ export const create = async (body: Comment) => {
   const user = await UserModel.findOne({ _id: userID });
   if (!user) throw new Error("User not found!");
 
-  // Checking the existence of the upost
+  // Checking the existence of the post
   const post = await PostModel.findOne({ _id: postID });
   if (!post) throw new Error("Post not found!");
 
