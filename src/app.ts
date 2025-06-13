@@ -8,6 +8,7 @@ import likeController from "./likes/likeController";
 import saveController from "./save/saveController";
 import commentController from "./comments/commentController";
 import followController from "./follow/followController";
+import replyCommentController from "./replyComments/replyCommentController";
 
 import IError from "./errors/errorInterface";
 
@@ -38,6 +39,8 @@ app.use("/saves", saveController);
 app.use("/comments", commentController);
 // follow routes
 app.use("/follow", followController);
+// reply comment routes
+app.use("/replyComments", replyCommentController);
 
 // * ----- 404 page -----
 app.use((req: Request, res: Response, next: NextFunction) => {
