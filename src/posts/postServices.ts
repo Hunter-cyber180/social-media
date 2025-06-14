@@ -1,4 +1,7 @@
 import ClientError from "../errors/clientError";
+import fs from "fs";
+import path from "path";
+
 // * ----- models -----
 import PostModel from "../models/Post";
 import UserModel from "../models/User";
@@ -48,7 +51,16 @@ export const deletePost = async (userID: string, postID: string) => {
   if (!post || post.user.toString() !== user._id.toString())
     throw new ClientError("Cant remove this post!", 400);
 
-  // TODO => delete post media
+  // post media path
+  const postMediaPath = path.join(
+    __dirname,
+    "..",
+    "..",
+    "public",
+    "images",
+    "posts",
+    post.media!.filename
+  );
 
   // Delete likes, comments, saved posts, and post
   await LikeModel.deleteMany({ post: postID });
