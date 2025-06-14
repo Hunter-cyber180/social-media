@@ -4,6 +4,7 @@ import ClientError from "../errors/clientError";
 import UserModel from "../models/User";
 import PostModel from "../models/Post";
 import SaveModel from "../models/Save";
+import LikeModel from "../models/Like";
 
 // save service
 export const save = async (userID: string, postID: string) => {
@@ -42,4 +43,26 @@ export const unsave = async (userID: string, postID: string) => {
   if (!save) throw new ClientError("Save not found!", 404);
 
   return;
+};
+
+// show saves
+export const getAllSaves = async (userID: string) => {
+  // get user
+  const user = await UserModel.findOne({ _id: userID });
+  if (!user) throw new ClientError("User not found!", 404);
+
+  // get saves
+  const saves = await SaveModel.find({ user: user._id })
+    .populate({
+      path: "post",
+      populate: {
+        path: "user",
+        model: "User",
+      },
+    })
+    .lean();
+
+  // TODO => set haslike property for user like
+
+  return { saves, user };
 };
