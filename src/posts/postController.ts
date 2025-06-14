@@ -6,11 +6,15 @@ import CreatePostDto from "./dto/createPostDto";
 
 // * ----- middlewares -----
 import ValidationMiddleware from "../middlewares/validate";
+import { storage } from "../middlewares/uploader";
 
 // * ----- services -----
 import { addPost, deletePost } from "./postServices";
 
 const router = Router();
+
+// * uploader
+const uploader = storage("public/images/posts", /jpeg|jpg|png|webp|mp4|mkv/);
 
 // add post controller
 router.post(
