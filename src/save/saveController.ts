@@ -1,9 +1,23 @@
 import { NextFunction, Router, Request, Response } from "express";
 
 // * ----- Services -----
-import { save, unsave } from "./saveServices";
+import { getAllSaves, save, unsave } from "./saveServices";
 
 const router = Router();
+
+router.get(
+  "/:userID",
+  async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    const { userID } = req.params;
+    const data = await getAllSaves(userID);
+
+    res.status(200).json({
+      message: "Get All Saves Was Successfully!",
+      data,
+      success: true,
+    });
+  }
+);
 
 // save controller
 router.post(
