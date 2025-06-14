@@ -20,6 +20,7 @@ const uploader = storage("public/images/posts", /jpeg|jpg|png|webp|mp4|mkv/);
 router.post(
   "/",
   ValidationMiddleware(CreatePostDto),
+  uploader.single("media"),
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       // get data from body and create post
