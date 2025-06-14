@@ -5,12 +5,15 @@ import { getAllSaves, save, unsave } from "./saveServices";
 
 const router = Router();
 
+// get all saves controller
 router.get(
   "/:userID",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    // get userID from params and get all saves of user
     const { userID } = req.params;
     const data = await getAllSaves(userID);
 
+    // return json response
     res.status(200).json({
       message: "Get All Saves Was Successfully!",
       data,
