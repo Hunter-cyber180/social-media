@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from "express";
 import cors from "cors";
+import path from "path";
 
 // ? ----- Controllers -----
 import authController from "./auth/authController";
@@ -21,6 +22,9 @@ app.use(cors());
 //? BodyParser
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(express.json({ limit: "50mb" }));
+
+// * ----- Static Folders -----
+app.use("/media", express.static(path.join(__dirname, "public/images")));
 
 // * ----- Routes -----
 app.get("/", (req: Request, res: Response) => {
