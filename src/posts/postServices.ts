@@ -62,6 +62,9 @@ export const deletePost = async (userID: string, postID: string) => {
     post.media!.filename
   );
 
+  // remove post media files
+  fs.unlinkSync(postMediaPath);
+
   // Delete likes, comments, saved posts, and post
   await LikeModel.deleteMany({ post: postID });
   await SaveModel.deleteMany({ post: postID });
