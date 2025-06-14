@@ -10,20 +10,22 @@ import CommentModel from "../models/Comment";
 import Post from "./dto/postDto";
 
 // create post service
-export const addPost = async (body: Post) => {
+export const addPost = async (body: Post, file: any) => {
   const { desc, tags, user: userID } = body;
 
   // get user by userID
   const user = await UserModel.findOne({ _id: userID });
   if (!user) throw new ClientError("User Not Found!", 404);
 
-  // TODO => upload media
+  // upload media
+  if (!file) throw new ClientError("Media is required!", 400);
+  const mediaPath = `images/posts/${file.filename}`;
 
   // Create new post
   const post = new PostModel({
     media: {
-      filename: "test filename",
-      path: "test path",
+      filename: file.filename,
+      path: mediaPath,
     },
     desc,
     tags,

@@ -25,7 +25,7 @@ router.post(
     try {
       // get data from body and create post
       const body: Post = req.body;
-      const post = await addPost(body);
+      const post = await addPost(body, req.file);
 
       // return json response
       res.status(201).json({
