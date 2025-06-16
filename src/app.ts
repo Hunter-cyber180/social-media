@@ -15,6 +15,9 @@ import userController from "./users/userController";
 
 import IError from "./errors/errorInterface";
 
+// ? swagger router
+import swaggerRouter from "./docs/swaggerConfig";
+
 const app = express();
 
 // * ----- Middlewares -----
@@ -51,6 +54,9 @@ app.use("/replyComments", replyCommentController);
 app.use("/pages", pageController);
 // user routes
 app.use("/users", userController);
+
+// * ----- Api Docs -----
+app.use("/api-docs", swaggerRouter);
 
 // * ----- 404 page -----
 app.use((req: Request, res: Response, next: NextFunction) => {
