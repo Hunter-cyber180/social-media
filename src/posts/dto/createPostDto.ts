@@ -1,4 +1,5 @@
 import { Type } from "class-transformer";
+import "reflect-metadata";
 import {
   IsArray,
   IsMongoId,
