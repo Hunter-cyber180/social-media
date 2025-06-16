@@ -11,6 +11,7 @@ import commentController from "./comments/commentController";
 import followController from "./follow/followController";
 import replyCommentController from "./replyComments/replyCommentController";
 import pageController from "./page/pageController";
+import userController from "./users/userController";
 
 import IError from "./errors/errorInterface";
 
@@ -48,6 +49,8 @@ app.use("/follow", followController);
 app.use("/replyComments", replyCommentController);
 // page routes
 app.use("/pages", pageController);
+// user routes
+app.use("/users", userController);
 
 // * ----- 404 page -----
 app.use((req: Request, res: Response, next: NextFunction) => {
