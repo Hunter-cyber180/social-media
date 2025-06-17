@@ -16,6 +16,12 @@
       }
     }
   },
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "routes for authentication"
+    }
+  ],
   "paths": {
     "/hello": {
       "get": {
