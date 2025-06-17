@@ -5,6 +5,17 @@
     "version": "1.0.0",
     "description": "Swagger docs for social app api"
   },
+  "components": {
+    "securitySchemes": {
+      "Authorization": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "scheme": "bearer",
+        "in": "header",
+        "description": "User token authorization: **Bearer [token]**"
+      }
+    }
+  },
   "paths": {
     "/hello": {
       "get": {
