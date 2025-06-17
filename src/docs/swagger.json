@@ -24,6 +24,10 @@
     {
       "name": "Page",
       "description": "routes for user page"
+    },
+    {
+      "name": "Comment",
+      "description": "routes for comments"
     }
   ],
   "paths": {
