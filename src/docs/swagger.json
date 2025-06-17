@@ -20,6 +20,10 @@
     {
       "name": "Auth",
       "description": "routes for authentication"
+    },
+    {
+      "name": "Page",
+      "description": "routes for user page"
     }
   ],
   "paths": {
