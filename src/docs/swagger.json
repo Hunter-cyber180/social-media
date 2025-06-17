@@ -28,6 +28,10 @@
     {
       "name": "Comment",
       "description": "routes for comments"
+    },
+        {
+      "name": "User",
+      "description": "routes for users"
     }
   ],
   "paths": {
