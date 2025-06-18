@@ -40,6 +40,10 @@
     {
       "name": "Save",
       "description": "routes for saves"
+    },
+    {
+      "name": "Like",
+      "description": "routes for likes"
     }
   ],
   "paths": {
