@@ -36,6 +36,10 @@
     {
       "name": "Follow",
       "description": "routes for followers and followings"
+    },
+    {
+      "name": "Save",
+      "description": "routes for saves"
     }
   ],
   "paths": {
