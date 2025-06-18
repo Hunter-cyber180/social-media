@@ -29,9 +29,13 @@
       "name": "Comment",
       "description": "routes for comments"
     },
-        {
+    {
       "name": "User",
       "description": "routes for users"
+    },
+    {
+      "name": "Follow",
+      "description": "routes for followers and followings"
     }
   ],
   "paths": {
