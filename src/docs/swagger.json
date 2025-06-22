@@ -80,6 +80,9 @@
           },
           "409": {
             "description": "Duplicate username or email"
+          },
+          "400": {
+            "description": "Body is not valid"
           }
         }
       }
