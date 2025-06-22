@@ -77,6 +77,9 @@
         "responses": {
           "201": {
             "description": "User registered successfully"
+          },
+          "409": {
+            "description": "Duplicate username or email"
           }
         }
       }
