@@ -73,6 +73,11 @@
               }
             }
           }
+        },
+        "responses": {
+          "201": {
+            "description": "User registered successfully"
+          }
         }
       }
     }
