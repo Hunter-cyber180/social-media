@@ -55,12 +55,23 @@
     }
   ],
   "paths": {
-    "/hello": {
-      "get": {
-        "summary": "Say hello",
-        "responses": {
-          "200": {
-            "description": "A hello message"
+    "/auth/register": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Register User Authentication",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "test@gmail.com",
+                  "username": "alexDRay",
+                  "name": "Alex",
+                  "password": "dsMDSkddsg"
+                }
+              }
+            }
           }
         }
       }
