@@ -48,6 +48,10 @@
     {
       "name": "Reply Comment",
       "description": "routes for reply comments"
+    },
+    {
+      "name": "Post",
+      "description": "routes for posts"
     }
   ],
   "paths": {
