@@ -123,6 +123,21 @@
           }
         }
       }
+    },
+    "/follow": {
+      "post": {
+        "tags": ["Follow"],
+        "summary": "Follow User Page",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "responses": {}
+      }
     }
   }
 }
