@@ -95,10 +95,14 @@
         "tags": ["Page"],
         "summary": "Get user page data",
         "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
         ],
-        "responses": {
-
-        }
+        "responses": {}
       }
     }
   }
