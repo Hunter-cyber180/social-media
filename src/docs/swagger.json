@@ -108,7 +108,11 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "successfully user page response"
+          }
+        }
       }
     }
   }
