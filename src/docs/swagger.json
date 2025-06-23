@@ -89,6 +89,17 @@
           }
         }
       }
+    },
+    "/pages/{userID}/{pageID}": {
+      "get": {
+        "tags": ["Page"],
+        "summary": "Get user page data",
+        "parameters": [
+        ],
+        "responses": {
+
+        }
+      }
     }
   }
 }
