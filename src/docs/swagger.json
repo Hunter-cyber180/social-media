@@ -136,7 +136,11 @@
             "Authorization": []
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "successfully following"
+          }
+        }
       }
     }
   }
