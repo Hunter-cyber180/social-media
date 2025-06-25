@@ -176,6 +176,9 @@
           },
           "400": {
             "description": "Bad Request Error"
+          },
+          "404": {
+            "description": "Not Found Error"
           }
         }
       }
