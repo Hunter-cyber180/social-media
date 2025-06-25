@@ -124,7 +124,7 @@
         }
       }
     },
-    "/follow": {
+    "/follow/{userID}/{pageID}": {
       "post": {
         "tags": ["Follow"],
         "summary": "Follow User Page",
@@ -142,9 +142,6 @@
             "type": "string"
           }
         ],
-        "requestBody": {
-          "content": {}
-        },
         "security": [
           {
             "Authorization": []
