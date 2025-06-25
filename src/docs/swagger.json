@@ -162,6 +162,13 @@
           }
         }
       }
+    },
+    "/saves/{userID}": {
+      "post": {
+        "tags": ["Save"],
+        "summary": "Get All User Saves",
+        "responses": {}
+      }
     }
   }
 }
