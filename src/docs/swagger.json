@@ -167,7 +167,11 @@
       "post": {
         "tags": ["Save"],
         "summary": "Get All User Saves",
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "successfully response"
+          }
+        }
       }
     }
   }
