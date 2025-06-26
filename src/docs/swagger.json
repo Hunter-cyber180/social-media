@@ -196,7 +196,11 @@
         "tags": ["Comment"],
         "summary": "Send A Comment",
         "requestBody": {},
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "successfully response"
+          }
+        }
       }
     }
   }
