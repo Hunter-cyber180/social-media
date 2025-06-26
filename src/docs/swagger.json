@@ -190,6 +190,14 @@
           }
         }
       }
+    },
+    "/comments": {
+      "post": {
+        "tags": ["Comment"],
+        "summary": "Send A Comment",
+        "requestBody": {},
+        "responses": {}
+      }
     }
   }
 }
