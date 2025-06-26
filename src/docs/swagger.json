@@ -199,6 +199,9 @@
         "responses": {
           "200": {
             "description": "successfully response"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
