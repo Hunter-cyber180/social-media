@@ -229,7 +229,14 @@
       "post": {
         "tags": ["Like"],
         "summary": "Like User Post",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "security": [
           {
             "Authorization": []
