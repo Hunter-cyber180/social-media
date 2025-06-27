@@ -200,7 +200,11 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "example": {}
+                "example": {
+                  "user": "683ec6385b7bcfc3dc9e0577",
+                  "post": "685cff7278d24fb943375c79",
+                  "content": "this is my test content"
+                }
               }
             }
           }
