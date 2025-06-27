@@ -257,6 +257,9 @@
           },
           "500": {
             "description": "Internal server error"
+          },
+          "404": {
+            "description": "Not Found Error"
           }
         }
       }
