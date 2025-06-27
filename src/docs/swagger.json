@@ -224,6 +224,19 @@
           }
         }
       }
+    },
+    "/likes/{userID}/{postID}": {
+      "post": {
+        "tags": ["Like"],
+        "summary": "Like User Post",
+        "parameters": [],
+        "security": [
+          {
+            "Authorization": []
+          }
+        ],
+        "responses": {}
+      }
     }
   }
 }
