@@ -269,7 +269,11 @@
         "tags": ["Reply Comment"],
         "summary": "Send A Reply Comment",
         "requestBody": {},
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "successfully response"
+          }
+        }
       }
     }
   }
