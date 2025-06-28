@@ -263,6 +263,14 @@
           }
         }
       }
+    },
+    "/replyComments": {
+      "post": {
+        "tags": ["Reply Comment"],
+        "summary": "Send A Reply Comment",
+        "requestBody": {},
+        "responses": {}
+      }
     }
   }
 }
