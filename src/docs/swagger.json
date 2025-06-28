@@ -268,7 +268,16 @@
       "post": {
         "tags": ["Reply Comment"],
         "summary": "Send A Reply Comment",
-        "requestBody": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {}
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "successfully response"
