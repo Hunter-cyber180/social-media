@@ -24,7 +24,7 @@ router.post(
 );
 
 // unlike post controller
-router.post(
+router.delete(
   "/:userID/:postID",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
