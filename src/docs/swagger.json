@@ -106,6 +106,9 @@
           },
           "404": {
             "description": "Not Found Error"
+          },
+          "422": {
+            "description": "Invalid Data Error"
           }
         }
       }
