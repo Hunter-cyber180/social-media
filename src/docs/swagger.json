@@ -94,6 +94,15 @@
       "post": {
         "tags": ["Auth"],
         "summary": "Login User Authentication",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "successfully response"
