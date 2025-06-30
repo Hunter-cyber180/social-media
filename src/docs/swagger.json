@@ -97,6 +97,9 @@
         "responses": {
           "200": {
             "description": "successfully response"
+          },
+          "400": {
+            "description": "Bad Request Error"
           }
         }
       }
