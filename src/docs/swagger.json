@@ -90,6 +90,13 @@
         }
       }
     },
+    "/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Login User Authentication",
+        "responses": {}
+      }
+    },
     "/pages/{userID}/{pageID}": {
       "get": {
         "tags": ["Page"],
