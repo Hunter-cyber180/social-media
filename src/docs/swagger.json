@@ -98,7 +98,11 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "example": {
+                  "email": "test@gmail.com",
+                  "password": "Alex@Dray2077"
+                }
               }
             }
           }
