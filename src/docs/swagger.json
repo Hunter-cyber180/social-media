@@ -94,7 +94,11 @@
       "post": {
         "tags": ["Auth"],
         "summary": "Login User Authentication",
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "successfully response"
+          }
+        }
       }
     },
     "/pages/{userID}/{pageID}": {
