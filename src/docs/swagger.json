@@ -130,10 +130,11 @@
       "get": {
         "tags": ["Auth"],
         "summary": "Get Refresh Token",
-        "parameters": [
-        ],
+        "parameters": [],
         "responses": {
-
+          "200": {
+            "description": "successfully response"
+          }
         }
       }
     },
