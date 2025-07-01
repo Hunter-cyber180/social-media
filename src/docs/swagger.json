@@ -150,6 +150,14 @@
         }
       }
     },
+    "/auth/forget-password": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Forget Password Path",
+
+        "responses": {}
+      }
+    },
     "/pages/{userID}/{pageID}": {
       "get": {
         "tags": ["Page"],
