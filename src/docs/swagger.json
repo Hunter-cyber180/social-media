@@ -137,6 +137,9 @@
           },
           "400": {
             "description": "Bad Request Error"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
