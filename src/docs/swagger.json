@@ -143,6 +143,9 @@
           },
           "498": {
             "description": "Invalid Token"
+          },
+          "404": {
+            "description": "Not Found Error"
           }
         }
       }
