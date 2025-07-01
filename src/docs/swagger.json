@@ -155,7 +155,11 @@
         "tags": ["Auth"],
         "summary": "Forget Password Path",
 
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "successfully response"
+          }
+        }
       }
     },
     "/pages/{userID}/{pageID}": {
