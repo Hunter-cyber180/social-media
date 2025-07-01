@@ -126,6 +126,17 @@
         }
       }
     },
+    "/auth/refresh/{token}": {
+      "get": {
+        "tags": ["Auth"],
+        "summary": "Get Refresh Token",
+        "parameters": [
+        ],
+        "responses": {
+
+        }
+      }
+    },
     "/pages/{userID}/{pageID}": {
       "get": {
         "tags": ["Page"],
