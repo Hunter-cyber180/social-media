@@ -140,6 +140,9 @@
           },
           "500": {
             "description": "Internal server error"
+          },
+          "498": {
+            "description": "Invalid Token"
           }
         }
       }
