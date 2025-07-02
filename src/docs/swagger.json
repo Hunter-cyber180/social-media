@@ -179,6 +179,15 @@
         }
       }
     },
+    "/auth/reset-password": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Reset Password Path",
+        "responses": {
+
+        }
+      }
+    },
     "/pages/{userID}/{pageID}": {
       "get": {
         "tags": ["Page"],
