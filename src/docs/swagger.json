@@ -184,7 +184,9 @@
         "tags": ["Auth"],
         "summary": "Reset Password Path",
         "responses": {
-
+          "200": {
+            "description": "successfully response"
+          }
         }
       }
     },
