@@ -195,6 +195,9 @@
           },
           "401": {
             "description": "Invalid or expired token"
+          },
+          "404": {
+            "description": "Not Found Error"
           }
         }
       }
