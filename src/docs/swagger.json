@@ -192,6 +192,9 @@
           },
           "500": {
             "description": "Internal server error"
+          },
+          "401": {
+            "description": "Invalid or expired token"
           }
         }
       }
