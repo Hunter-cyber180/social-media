@@ -159,7 +159,9 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "example": {}
+                "example": {
+                  "email": "test@gmail.com"
+                }
               }
             }
           }
