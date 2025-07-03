@@ -427,7 +427,11 @@
       "delete": {
         "tags": ["Follow"],
         "summary": "UnFollow Page",
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "successfully response"
+          }
+        }
       }
     }
   }
