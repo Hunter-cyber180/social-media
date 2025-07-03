@@ -422,6 +422,13 @@
           }
         }
       }
+    },
+    "/follow/{userID}/{pageID}": {
+      "delete": {
+        "tags": ["Follow"],
+        "summary": "UnFollow Page",
+        "responses": {}
+      }
     }
   }
 }
