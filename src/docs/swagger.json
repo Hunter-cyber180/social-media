@@ -290,6 +290,18 @@
             "description": "Bad Request Error"
           }
         }
+      },
+      "delete": {
+        "tags": ["Follow"],
+        "summary": "UnFollow Page",
+        "responses": {
+          "200": {
+            "description": "successfully response"
+          },
+          "400": {
+            "description": "Body is not valid"
+          }
+        }
       }
     },
     "/saves/{userID}": {
@@ -419,20 +431,6 @@
           },
           "404": {
             "description": "Not Found Error"
-          }
-        }
-      }
-    },
-    "/follow/{userID}/{pageID}": {
-      "delete": {
-        "tags": ["Follow"],
-        "summary": "UnFollow Page",
-        "responses": {
-          "200": {
-            "description": "successfully response"
-          },
-          "400": {
-            "description": "Body is not valid"
           }
         }
       }
