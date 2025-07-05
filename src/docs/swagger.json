@@ -294,6 +294,14 @@
       "delete": {
         "tags": ["Follow"],
         "summary": "UnFollow Page",
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "successfully response"
