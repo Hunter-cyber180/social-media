@@ -43,7 +43,7 @@ router.post(
 );
 
 // unsave controller
-router.post(
+router.delete(
   "/:userID/:postID",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
