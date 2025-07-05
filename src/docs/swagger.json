@@ -325,7 +325,7 @@
       }
     },
     "/saves/{userID}": {
-      "post": {
+      "get": {
         "tags": ["Save"],
         "summary": "Get All User Saves",
         "parameters": [
