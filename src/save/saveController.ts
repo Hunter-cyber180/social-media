@@ -24,7 +24,7 @@ router.get(
 
 // save controller
 router.post(
-  "/:userID/:postID",
+  "/",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       // get userID and postID from req.body and save post
