@@ -356,6 +356,16 @@
       "post": {
         "tags": ["Save"],
         "summary": "Save a Post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {}
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "Post Created Successfully"
