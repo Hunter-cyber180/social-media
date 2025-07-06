@@ -352,6 +352,13 @@
         }
       }
     },
+    "/saves": {
+      "post": {
+        "tags": ["Save"],
+        "summary": "Save a Post",
+        "responses": {}
+      }
+    },
     "/comments": {
       "post": {
         "tags": ["Comment"],
