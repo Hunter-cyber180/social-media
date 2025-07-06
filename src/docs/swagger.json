@@ -359,6 +359,9 @@
         "responses": {
           "201": {
             "description": "Post Created Successfully"
+          },
+          "400": {
+            "description": "Body is not valid"
           }
         }
       }
