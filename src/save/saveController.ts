@@ -27,8 +27,8 @@ router.post(
   "/:userID/:postID",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      // get userID and postID from req.params and save post
-      const { userID, postID } = req.params;
+      // get userID and postID from req.body and save post
+      const { userID, postID } = req.body;
       await save(userID, postID);
 
       // return json response
