@@ -356,7 +356,11 @@
       "post": {
         "tags": ["Save"],
         "summary": "Save a Post",
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "Post Created Successfully"
+          }
+        }
       }
     },
     "/comments": {
