@@ -461,10 +461,12 @@
       "delete": {
         "tags": ["Follow"],
         "summary": "UnFollow Page",
-        "parameters": [
-
-        ],
-        "responses": {}
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successfully response"
+          }
+        }
       }
     },
     "/replyComments": {
