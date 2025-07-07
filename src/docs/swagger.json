@@ -457,6 +457,16 @@
         }
       }
     },
+    "/likes/{userID}/{pageID}": {
+      "delete": {
+        "tags": ["Follow"],
+        "summary": "UnFollow Page",
+        "parameters": [
+
+        ],
+        "responses": {}
+      }
+    },
     "/replyComments": {
       "post": {
         "tags": ["Reply Comment"],
