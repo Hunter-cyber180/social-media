@@ -290,7 +290,9 @@
             "description": "Bad Request Error"
           }
         }
-      },
+      }
+    },
+    "/follow/{userID}/{pageID}": {
       "delete": {
         "tags": ["Follow"],
         "summary": "UnFollow Page",
