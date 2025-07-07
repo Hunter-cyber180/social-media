@@ -418,7 +418,7 @@
         }
       }
     },
-    "/likes/{userID}/{postID}": {
+    "/likes": {
       "post": {
         "tags": ["Like"],
         "summary": "Like User Post",
