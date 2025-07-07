@@ -253,7 +253,7 @@
         }
       }
     },
-    "/follow/{userID}/{pageID}": {
+    "/follow": {
       "post": {
         "tags": ["Follow"],
         "summary": "Follow User Page",
