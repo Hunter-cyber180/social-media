@@ -5,11 +5,11 @@ const router = Router();
 
 // like post controller
 router.post(
-  "/:userID/:postID",
+  "/",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      // get postID and userID from req.params and like post
-      const { postID, userID } = req.params;
+      // get postID and userID from req.body and like post
+      const { postID, userID } = req.body;
       await like(userID, postID);
 
       // return json response
