@@ -7,10 +7,10 @@ const router = Router();
 
 // follow page controller
 router.post(
-  "/:userID/:pageID",
+  "/",
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    // get pageID and userID from req.params and follow page
-    const { userID, pageID } = req.params;
+    // get pageID and userID from req.body and follow page
+    const { userID, pageID } = req.body;
     const data = await follow(userID, pageID);
 
     // return json response
