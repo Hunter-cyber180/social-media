@@ -354,6 +354,14 @@
         }
       }
     },
+    "/saves/{userID}/{postID}": {
+      "get": {
+        "tags": ["Save"],
+        "summary": "Delete a Save",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/saves": {
       "post": {
         "tags": ["Save"],
