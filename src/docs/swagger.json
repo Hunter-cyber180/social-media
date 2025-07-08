@@ -359,7 +359,11 @@
         "tags": ["Save"],
         "summary": "Delete a Save",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "successfully following"
+          }
+        }
       }
     },
     "/saves": {
