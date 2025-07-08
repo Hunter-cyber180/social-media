@@ -358,7 +358,14 @@
       "get": {
         "tags": ["Save"],
         "summary": "Delete a Save",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "successfully following"
