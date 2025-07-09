@@ -556,7 +556,7 @@
       }
     },
     "/posts/{userID}/{postID}": {
-      "post": {
+      "delete": {
         "tags": ["Post"],
         "summary": "Delete a Post",
         "parameters": [
