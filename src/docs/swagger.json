@@ -588,6 +588,14 @@
           }
         }
       }
+    },
+    "/posts": {
+      "post": {
+        "tags": ["Post"],
+        "summary": "Create Post",
+        "requestBody": {},
+        "responses": {}
+      }
     }
   }
 }
