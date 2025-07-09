@@ -559,7 +559,14 @@
       "post": {
         "tags": ["Post"],
         "summary": "Delete a Post",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "201": {
             "description": "successfully response"
