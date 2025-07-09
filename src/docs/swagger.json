@@ -560,7 +560,11 @@
         "tags": ["Post"],
         "summary": "Delete a Post",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "successfully response"
+          }
+        }
       }
     }
   }
