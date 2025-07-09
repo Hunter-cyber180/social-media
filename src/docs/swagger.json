@@ -569,6 +569,9 @@
           },
           "400": {
             "description": "Body is not valid"
+          },
+          "404": {
+            "description": "Not Found Error"
           }
         }
       }
