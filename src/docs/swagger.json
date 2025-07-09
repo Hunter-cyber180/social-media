@@ -565,6 +565,12 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "pageID",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
