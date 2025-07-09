@@ -563,6 +563,9 @@
         "responses": {
           "201": {
             "description": "successfully response"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
