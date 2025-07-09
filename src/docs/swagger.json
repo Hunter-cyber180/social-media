@@ -566,6 +566,9 @@
           },
           "500": {
             "description": "Internal server error"
+          },
+          "400": {
+            "description": "Body is not valid"
           }
         }
       }
