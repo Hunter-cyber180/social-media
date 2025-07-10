@@ -257,7 +257,16 @@
       "post": {
         "tags": ["Follow"],
         "summary": "Follow User Page",
-        
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {}
+              }
+            }
+          }
+        },
         "security": [
           {
             "Authorization": []
