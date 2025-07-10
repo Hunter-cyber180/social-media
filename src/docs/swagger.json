@@ -257,20 +257,7 @@
       "post": {
         "tags": ["Follow"],
         "summary": "Follow User Page",
-        "parameters": [
-          {
-            "name": "userID",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "pageID",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        
         "security": [
           {
             "Authorization": []
