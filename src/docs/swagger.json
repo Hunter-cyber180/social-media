@@ -594,7 +594,11 @@
         "tags": ["Post"],
         "summary": "Create Post",
         "requestBody": {},
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "successfully response"
+          }
+        }
       }
     }
   }
