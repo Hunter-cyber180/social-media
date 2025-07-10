@@ -593,7 +593,16 @@
       "post": {
         "tags": ["Post"],
         "summary": "Create Post",
-        "requestBody": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {}
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "successfully response"
