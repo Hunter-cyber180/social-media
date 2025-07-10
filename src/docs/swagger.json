@@ -351,7 +351,7 @@
       }
     },
     "/saves/{userID}/{postID}": {
-      "get": {
+      "delete": {
         "tags": ["Save"],
         "summary": "Delete a Save",
         "parameters": [
